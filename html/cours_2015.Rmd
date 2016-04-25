@@ -1,0 +1,239 @@
+---
+title: "JGB71E - Bioinformatique Appliquée - Contenu du cours 2015-2016"
+author: "Denis Puthier & Jacques van Helden"
+date: '`r Sys.Date()`'
+output:
+  html_document:
+    fig_caption: yes
+    highlight: zenburn
+    theme: cerulean
+    toc: yes
+    toc_depth: 3
+  pdf_document:
+    fig_caption: yes
+    highlight: zenburn
+    toc: yes
+    toc_depth: 3
+  word_document: default
+---
+
+
+* * * * * ** *
+
+## Description du module
+
+**Volume** 8h CM + 10h TD
+**Enseignants:** Denis Puthier et Jacques van Helden
+
+
+### Prérequis
+
+Ce module s'adrese aux étudiants du S7 du parcours polytech biotechnologie, et il s'appuie sur les connaissances acquises durant les cours de bioinformatique de l'année précédente. 
+
+- Annotation des génomes (Gaël Erauso)
+- Programmation (Denis Puthier)
+
+### Objectifs pédagogiques
+
+L'objectif général de ce module est d'apprendre à utiliser des outils bioinformatiques pour analyser des données massives produites par les technologies de séquençage massivement parallèle (*Next Generation sequencing*, *NGS*).
+
+
+### Modalités de contrôle des connaissances
+
+Examen sur table. 
+
+- Questions de théorie sur base des CM
+- Interprétation de résultats: nous fournissons une ou des figures/tables de résultats produites par un logiciel ou extraites de la littérature et vous demandons de les interpréter
+- Exercices: interprétation des statistiques sous-jacentes au traitement des données NGS (p-valeur, FDR). 
+
+* * * * * * * * *
+
+## Ne pas confondre : module "génomique"
+
+Ce module est complémentaire au module optionnel de "Génomique"
+
+- Exploration de génomes (TP: Ensembl genome browser, UCSC genome browser)
+
+- Bilan d'annotation des génomes (en se basant sur les méthodes vues en 3A, annotation par similarité de séquences)
+
+- Structure des gènes (concepts: maîtriser les concepts d'intron, exon, UTR, épissage alternatif; TP: calculer des statistiques sur les répartitions des séquences génomiques en intron/exon/UTR, ... à partir de fichiers plats)
+
+- Génomique comparative: 
+
+    - types d'homologie (TP: Ensembl Compara)
+    - identification de régions génomoiques conservées entre génomes d'animaux pluricellulaires
+    
+    
+- Annotation fonctionnelle de groupes de gènes
+
+    - enrichissement GO
+    
+* * * * * * * * 
+    
+## Contenu du cours 2015
+
+### Cours
+
+
+Denis dresse un panorama global des technologies, des méthodes et des applications.
+
+Jacques revient ensuite sur les aspects bioinformatiques (comparaisons d'outils) et statistiques des principales étapes (read mapping, peak calling, analyse différentielle en transcriptomique).
+
+#### CM1 et 2: Introduction aux technologies de Next Generation Sequencing (Denis)
+
+- technologies de séquençage 
+
+- distinction entre single-end et paired-ends
+
+- accès aux données NGS dans les bases de données. GEO, sample, series, platform, ...
+
+- quelques ordres de grandeurs (rapidité de séquençage, nombre de jeux de données disponibles ppour les métazoaires, plantes, Fungi, bactéries)
+
+- problèmes d'échelle pour le traitement des données
+
+- développmeent de nouvelles méthodes d'analyswe appropriées au caractère particulier des donénes (comptages, maths discrètes)
+
+- Survol des outils existants (donner l'idée générale plutôt qu'une énumération)
+
+    - nouveaux outils spécialisés et suites disponible sous Linux (samtools, bedtools, ...)
+    - environnement Galaxy pour la gestion des workflows basiques
+    - environnement R pour le traitement statistique personnalisé
+
+- Paysage général des applications
+
+    - RNA-seq: traité au cours
+    - ChIP-seq : vu au cours
+    - Analyse de variants: pas traité cette année
+    - RNA-seq de novo: pas traité cette année
+    - autres applications: montrer la diversité des applications, et l'explosion des "machin-seq"
+
+
+- Qualité des reads / read mapping
+
+- Cas d'étude: on vient de séquencer des échantillons ChIP-seq, on veut évaluer la qualité des reads + les aligner sur le génome + évaluer la répartition chromosomique de ces reads.
+
+- Problématique générale du read mapping
+- Qualité des reads: montrer un exemple de rapport fastqc (ou bien plus tard ?)
+- Formats de fichiers de reads: fastq, bam 
+- Formats de fichiers pour lesprofils de couverture (bedgraph, wig, bigwig)
+- Outils d'alignement (montrer quelques outils, un exemple de résultat, mentionner les paramètres à ajuster / surveiller)
+- Statistiques de read mapping
+
+    - probabilité de match en fonction des substitutions (binomiale). modèle simplifié IID
+    - temps d'attente pour la Nième substitution (binomiale négative)
+    - (?) probabilité d'une séquence en prenant en compte les fréquences de résidus
+   
+#### CM3: Annotation des génomes
+
+##### Prérequis / rappels
+
+Les concepts suivants sont censés être maîtrisés par les étudiants qui suivront ce cours. Ils ont été abordés dans d'autres modules de la formaiton (bioinformatique, biochimie, biologie moléculaire).
+
+- Structure d'un gène codant (ORFs, introns, exons, UTR, régions avoisinantes)
+- Régulation transcriptionnelle
+- Voies métaboliques et leur régulation (transcription, activité enzymatique, transport)
+- Evénements évolutifs: spéciation, duplications, mutations
+- Alignements de séquences (par paires, multiples)
+- Recherche de séquences par similarité
+- Concepts d'homologie, analogie, orthologie, paralogie
+- Inférence phylogénétique
+
+##### La diversité génomique
+
+- Quelques ordres de grandeur concernant la diversité des génomes. Tailles des génomes, nombre de gènes, proportions codant / non-codant, ...
+- Nombre de génomes disponibles par groupe taxonomique
+- Annotations 
+
+- génomes microbiens: quelques jalons
+- l'annotation des gènes par similarité de séquence
+- méthodes de génomique comparative pour l'annotation des gènes (profils phylogénétiques, fusions/fissions, synténie)
+- opérons
+- détection de gènes différentiellement exprimés (biopuces et RNA-seq)
+- annotation des voies métaboliques
+- réseaux d'interactions fonctionnelles
+- enrichissement fonctionnel (Gene Ontology)
+    
+<!--#### CM3: Analyse statistique de données ChIP-seq (Jacques van Helden)
+
+
+- Read mapping pour le peak-calling
+- Problématique générale du peak calling 
+- Applications: facteurs transcriptionnels / marques chromatiniennes
+- Choix de l'input
+- Formats de fichier (bed + les dialectes)
+- Outils existants
+
+    - insister sur la différence entre narrow et broad peaks
+    - Impact du choix de l'outil sur les résultats (MACS vs SPSS vs Homer vs SICER)
+    - Impact du choix des paramètres sur les résultats
+
+- Visualisation: montrer la répartition des reads de chip-seq le long du génome + l'input
+
+- répartition chromosomique des reads (CEAS)
+
+- Statistiques de peak-calling: Poisson (+ discussion sur l'estimation du lambda)
+-->
+
+#### Analyse statistique des données de biopuce (Jacques van Helden)
+
+##### Biopuces
+
+- Détection de gènes différentiellement exprimés
+- Corrections pour les tests multiples
+- Contrôles négatifs
+- Clustering
+- Classification supervisée
+
+##### RNA-seq
+
+- Rappel: structure d'un gène
+- Modalité de comptage des reads par gène / transcrit / opéron / exon / .... 
+- Statistiques d'expression différentielle
+- Corrections de tests multiples
+- Contrôles négatifs
+
+* *  * * * * * 
+
+### Travaux pratiques
+
+#### Manipulation de données NGS avec Galaxy (Denis Puthier)
+
+Le premier TD visera à se familiariser avec les données NGS, en aanlysant quelques jeux de données illustratifs. 
+
+Outils: Galaxy
+
+Jeux d'étude: analyse de données ChIP-seq
+
+But du TP: implémenter un petit workflow sous Galaxy: faire tourner les outils un à un puis construire son workflow
+
+- read mapping
+- peak calling 
+- visualisation des données sur le génome (IGV et/ou UCSC genome browser)
+
+#### Accès aux données, annotation et visualisation (Denis Puthier)
+
+- se connecter à GEO et récupérer des données
+- importer des résultats du read mapping (coverage) + peak calling d'ENCODE ou Blueprint (tissus) pour certains facteurs et marques
+- préparer des figures représentatives à échelle du génome, du chromosome ou d'un gène
+- détecter les gènes liés aux pics d'un TF d'intérêt dans deux tissus donnés et comparer
+- analyse d'enrichissement fonctionnel 
+
+
+#### Analyse statistique de données NGS (Jacques van Helden)
+
+1. Read mapping
+2. Détection de gènes différentiellement exprimés
+3. Clustering
+4. Enrichissement fonctonnel
+
+#### Annotations génomiques (Jacques van Helden)
+
+1. Réseaux d'interactions entre gènes (STRING)
+2. Bases de données métaboliques (MetaCyc, KEGG)
+3. Inférence d'opérons dans les génomes bactériens
+4. Projection de groupes de gènes d'intérêt sur des voies métaboliques
+
+
+
+* * * * * * * * 
+

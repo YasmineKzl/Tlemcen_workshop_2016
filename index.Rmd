@@ -1,0 +1,70 @@
+---
+title: "jgb71e — 4ème année Polytech Marseille - Bioinformatique appliquée."
+author: "Denis Puthier, Jacques van Helden"
+date: "2015-2016"
+output: 
+  html_document:
+    theme: cerulean
+    toc: true
+    toc_depth: 4
+---
+
+* * *  * * * * * *
+
+
+## Enseignants
+
+- Jacques van Helden (JvH)
+- Denis Puthier (DP)
+
+* * *  * * * * * *
+
+## Ressources
+
+| Nom | Lien | Description
+-----|------|--------------
+|site web d'Illumina | https://www.illumina.com/| De nombreuses vidéo de présentation des technologies.|
+|site web d'Oxford Nanopore|https://www.nanoporetech.com/| Présentation du MiION et des ses applications.|
+
+-------------------------------------------------------
+
+## Cours théoriques
+
+Vous trouverez ci-dessous des  informations portant sur les concepts nécessaires à la réalisation des travaux dirigés.
+
+
+| Nom | Description  |
+|-----|--------------|
+|[Les approches hauts-débit en génomique](slides/genomic-intro.pdf)  | Les outils haut-débit et les challenges dans le domaine de la génomique. |
+| [Une introduction au RNA-Seq](slides/rna-seq_2015-polytech.pdf)| Applications. Traitement des données RNA-Seq. |
+| [Annotation des génomes](slides/CM3_annotation_des_genomes_JvH.pdf) | Annotation : des génomes aux voies métaboliques, en passant parfois par les données transcriptomiques | 
+| [Analyse statistique du transcriptome](slides/CM4_statistical_analysis_of_transcriptome.pdf) | Premiers éléments d'analyse statistique du transcriptome: (1) rappels des notions d'échantillonnage; (2) tests de comparaison de moyenne; (3) clustering. Sur base de biopuces, mais les TP incluront également quelques touches d'analyse de RNA-seq. | 
+
+-------------------------------------------------------
+
+## Travaux dirigés
+
+Vous trouverez ci-dessous la liste des exercices réalisés.
+
+| Nom |  Concepts traités  | Outils |
+|-----|-------------------|--------|
+| [Tutoriel RNA-Seq](practical/rna_seq_galaxy/rnaseq_td_galaxy.html) | Traitement de données RNA-Seq | Galaxy server, TopHat, FastQC, cufflinks, cuffmerge, IGV, samtool flagstat, UCSC genome Browser, UCSC table Browser, UCSC FTP web site, Ensembl gene search, R...
+| [R quick tour](practical/R_first_steps/quick_tour.html) | Opérations de base avec R (réalisée sous forme de démo durant les TP) | R, RStudio |
+| [Transcriptome microarrays](practical/microarrays/denboer_data/) | Analyse des données de biopuces; détection de gènes exprimés de façon différentielles (DEG) entre sous-types de cancers.  | R, RStudio |
+
+* * *  * * * * * *
+
+### Fichiers de données
+
+#### Den Boer 2009
+
+| Contenu | Fichier |
+|---------|---------|
+| Table d'expression | [denboer2009_GSE13425_Norm_Whole.tab.gz](practical/microarrays/denboer_data/denboer2009_GSE13425_Norm_Whole.tab.gz) |
+| Sous-types d'échantillons | [denboer2009_GSE13425_sample_subtype.tab](practical/microarrays/denboer_data/denboer2009_GSE13425_sample_subtype.tab) |
+| Description des échantillons | [GSE13425_phenoData.txt](practical/microarrays/denboer_data/GSE13425_phenoData.txt) |
+| | | 
+
+* * *  * * * * * *
+
+

@@ -1,0 +1,351 @@
+---
+title: 'Quick tour of basic R functionalities'
+author: Jacques van Helden
+date: '`r Sys.Date()`'
+output:
+  html_document:
+    fig_caption: yes
+    highlight: zenburn
+    theme: cerulean
+    toc: yes
+    toc_depth: 4
+  pdf_document:
+    fig_caption: yes
+    highlight: zenburn
+    toc: yes
+    toc_depth: 4
+  word_document: default
+---
+
+* * * * *
+
+```{r knitr setup, include=FALSE,  eval=TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo=TRUE, eval=FALSE, cache=FALSE, message=FALSE, warning=FALSE, comment = "")
+```
+
+
+### Assignment of a single value to a variable
+
+```{r}
+a <- 3	
+```
+
+a is the variable, 3 is the value
+
+```{r}
+b <- 4	
+```
+
+b is another variable
+
+```{r}
+c <- 2	
+```
+
+c is a third variable
+
+### Operation
+
+```{r}
+(a + b)^c
+```
+
+the result is displayed on the screen
+
+```{r}
+d <- a*b/c
+```
+
+the result of the operation is stored in a new variable d
+
+```{r}
+print(d)
+```
+
+the value of d is printed
+
+```{r}
+d	
+```
+
+A shortcut for print(d): if you evoke a variable without any nistruction, its value is printed on the screen.
+
+### Built-in functions
+
+```{r}
+log(a)
+
+## Each R function has an help page
+help(log)
+```
+
+
+```{r}
+sqrt(b)
+```
+
+### Series
+
+Generate a series from 0 to 10
+
+```{r}
+0:10
+```
+
+The interval is always 1 but multiplying by a real coefficient can lead
+to series with any interval:
+
+```{r}
+-1 + 0.2*0:10
+```
+
+
+Series can also be generated with the R function *seq()*. 
+
+```{r}
+seq(from=-5, to=5, by=0.5)
+```
+
+
+### Vectors
+
+c() concatenates a list of values
+
+```{r}
+v <- c(2.12,5.04,3.17,77.1,11.09,62)
+print(v)
+```
+
+v is a vector containing numeric values.
+
+```{r}
+class(v) ## Get the data type of a variable
+```
+
+If a vector contains some string, all its elements are considered as
+strings as well. 
+
+```{r}
+w	<- c(3,"hello",5,"this",7,"is",9,"a",23,"string")
+print(w)
+```
+
+
+This is indicated by the double quotes around the
+"numbers" \# Actually, a,b,c, and d are also vectors (which is the
+simplest object in R), but they contain a single element each. This is
+the reason why a [1] appears when their value is printed
+
+#### Manipulating a vector
+
+Functions and operations apply directly to each element of a vector, and
+a vector of the same size is returned.
+
+```{r}
+sqrt(v)  
+```
+
+```{r}
+3*v + v^2  
+```
+
+
+#### Reading a vector from a file
+
+A vector can be read from a text file with the function *scan()*.
+
+```{r}
+test.file <- "http://pedagogix-tagc.univ-mrs.fr/courses/statistics_bioinformatics/data/orf_lengths/yeast_orf_length_enum.txt"
+v <- scan(test.file)
+```
+
+
+Note that in R we generally work with tables rather than vectors. The function *scan()* is rarely used. 
+
+#### Subsets of a vector
+
+Get the fourth element of the vector v:
+
+```{r}
+v[4]
+```
+
+
+Rlements 2 to 74:
+
+```{r}
+v[2:7]
+```
+
+
+Elements can also be selected in a custom order specified within the concatenation
+c():
+
+```{r}
+v[c(2,6,8,1,3,5)]
+```
+
+
+Get 100 first elements (note the numbering at the beginning of each row):
+
+```{r}
+v[1:100]
+```
+
+
+### Data frames (data.frame): an object containing a 2-dimentional array and some associated methods
+
+Read a data frame from a text file. This takes a few seconds (the
+loading time depends on the network speed).
+
+```{r}
+test.table <- "http://pedagogix-tagc.univ-mrs.fr/courses/statistics_bioinformatics/data/gene_expression/gasch2000/carbon_sources/zscores_carbon_sources.tab"
+carbon <- read.table(test.table,header=T,row.names=1)
+```
+
+#### Getting the dimensions of a data.frame
+
+```{r}
+dim(carbon)
+```
+
+
+#### Printing column names for a data.frame
+
+Print the column names for a data frame.
+
+```{r}
+names(carbon)
+```
+
+
+#### Printing row names for a data.frame
+
+Print the row names for a data frame.
+
+```{r}
+row.names(carbon)
+```
+
+
+#### selecting rows from a data.frame
+
+Return the first row, together with the header. Since there are too
+many columns, several lines are required.
+
+
+```{r}
+carbon[1,]
+```
+
+Return the 10 first data rows
+
+```{r}
+carbon[1:10,]
+```
+
+#### Accessing columns in a data frame
+
+The following notation returns the 6152 numbers that are found in the column "mannose"
+(these are the measures for all the genes at time point 1)
+
+```{r}
+carbon[,1]
+```
+
+
+Return the names of the columns (column headers)
+
+```{r}
+names(carbon)
+```
+
+
+Another way to get the same column, specified by its name rather than
+index.
+
+
+```{r}
+carbon[,"mannose"]
+```
+
+Yet another way to access the same column
+
+```{r}
+carbon$mannose
+```
+
+The content of single column (in this case the 4th chip) can be assigned
+to a vector.
+
+```{r}
+v <- carbon[,4]
+```
+
+
+An element of the vector can then be accessed by adding a single index.
+This returns the value of the 3201th gene of the 4th chip.
+
+```{r}
+v[3201]
+```
+
+
+#### Accessing individual cells
+
+This directly returns the 4th chip for the 3201th gene.
+
+```{r}
+carbon[3201,4]
+```
+
+
+#### Accessing subsets of a data frame
+
+This returns a rectangular section of the data frame (genes 100 to 120,
+chips 1 to 3).
+
+```{r}
+carbon[100:120,1:3]
+```
+
+#### Filtering undefined values
+
+For technical reasons, a chip might contain some undefined values. **R**
+contains a specific value for undefined values, which are displayed as
+**`NA`**.
+
+The presence of NA values poses problems for some calculation methods.
+**R** methods generally include some options allowing to specify the way
+to treat these values.
+
+One simple way to get rid of NA values is to filter out all the rows
+which contain one of these.
+
+```{r}
+dim(carbon)
+carbon.filtered <- na.omit(carbon)
+dim(carbon.filtered)
+```
+
+
+#### Selecting rows from a data.frame
+
+This returns columns 5 to 7 for all genes having a higher level than 3
+for the 7th chip.
+
+```{r}
+carbon.filtered[carbon.filtered[,7] > 3,5:7]
+```
+
+
+### Quit R
+
+```{r}
+q()
+```
+
+The program asks you `"Save workspace image? [y/n/c]:"` Answer "n" (for
+the time being, later it can be useful to save the state of the program
+between two working sessions).
