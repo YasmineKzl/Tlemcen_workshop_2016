@@ -1,12 +1,16 @@
 ---
-title: "jgb71e — 4ème année Polytech Marseille - Bioinformatique appliquée."
-author: "Denis Puthier, Jacques van Helden"
+title: "Tlemcen Workshop."
+author: Yasmine Kermezli, Denis Puthier, Eve-lyne Mathieu, Mourad Aribi Salvatore
+  Spicuglia
 date: "2015-2016"
-output: 
+output:
   html_document:
     theme: cerulean
-    toc: true
+    toc: yes
     toc_depth: 4
+  word_document:
+    toc: yes
+    toc_depth: '4'
 ---
 
 * * *  * * * * * *
@@ -14,7 +18,6 @@ output:
 
 ## Enseignants
 
-- Jacques van Helden (JvH)
 - Denis Puthier (DP)
 
 * * *  * * * * * *
@@ -38,7 +41,7 @@ Vous trouverez ci-dessous des  informations portant sur les concepts nécessaire
 |[Les approches hauts-débit en génomique](slides/genomic-intro.pdf)  | Les outils haut-débit et les challenges dans le domaine de la génomique. |
 | [Une introduction au RNA-Seq](slides/rna-seq_2015-polytech.pdf)| Applications. Traitement des données RNA-Seq. |
 | [Annotation des génomes](slides/CM3_annotation_des_genomes_JvH.pdf) | Annotation : des génomes aux voies métaboliques, en passant parfois par les données transcriptomiques | 
-| [Analyse statistique du transcriptome](slides/CM4_statistical_analysis_of_transcriptome.pdf) | Premiers éléments d'analyse statistique du transcriptome: (1) rappels des notions d'échantillonnage; (2) tests de comparaison de moyenne; (3) clustering. Sur base de biopuces, mais les TP incluront également quelques touches d'analyse de RNA-seq. | 
+| [Analyse statistique du transcriptome](slides/CM4_statistical_analysis_of_transcriptome.pdf) | Premiers éléments d'analyse statistique du transcriptome: (1) rappels des notions d'échantillonnage; (2) tests de comparaison de moyenne; (3) clustering. Sur base de biopuces, mais les TP incluront également quelques touches d'analyse de RNA-seq. |
 
 -------------------------------------------------------
 
