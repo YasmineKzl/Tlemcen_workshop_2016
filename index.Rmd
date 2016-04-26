@@ -98,6 +98,8 @@ Vous trouverez ci-dessous des liens vers du matériel pédagogique utilisé dans
 -----|------|--------------
 |site web d'Illumina | https://www.illumina.com/| De nombreuses vidéo de présentation des technologies.|
 |site web d'Oxford Nanopore|https://www.nanoporetech.com/| Présentation du MiION et des ses applications.|
+|site web de package Deseq2| https://bioconductor.org/packages/release/bioc/html/DESeq2.html| Analyse de l'expression différentielle via la distribution binomiale négative.
+|site web de l'UCSC genome browser | https://genome.ucsc.edu/| Extraction des séquences de référence à partir d'une large collection de génome.
 
 -------------------------------------------------------
 
