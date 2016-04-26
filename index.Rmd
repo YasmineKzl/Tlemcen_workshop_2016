@@ -1,26 +1,96 @@
+
 ---
-title: "Tlemcen Workshop."
-author: Yasmine Kermezli, Denis Puthier, Eve-lyne Mathieu, Mourad Aribi, Salvatore
-  Spicuglia, mohamed belhocine, wiam saadi, lynda klouche, djamel smahi, warda meziane, zeyneb hadjidj, zineb mekkaoui, sana boualitabet helal 
-date: "29 Mai 2016 - 2 juin 2016"
+title: IIIème workshop du laboratoire BIOMOLIM - Immunoinformatique - Analyse du transcriptome
+  par approches haut-débit.
+author: 'null'
+date: "29 mai au 2 juin - Auditorium de la faculté SNV-TU - Algérie."
 output:
   html_document:
     theme: cerulean
-    toc: yes
+    toc: no
     toc_depth: 4
   word_document:
     toc: yes
     toc_depth: '4'
 ---
 
-* * *  * * * * * *
+<br>
+<br>
+
+| | ||
+|-- | --|--|
+|<img src="img/banniere-labo.png" style="width:300px; vertical-align:middle">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<img src="img/tagc_logo.jpg" style="width:300px; vertical-align:top !important">|
+
+<br>
+<br>
+
+## Comité d'organisation
+
+- S. Spicuglia & Mourad Aribi.
+
+## Equipe pédagogique
+
+- Eve-Lyne Mathieu
+- Yasmina Kermezli
+- Denis Puthier 
+- Mohamed Belhocine
+- Wiam Saadi
+- Lynda Klouche
+- Djamel Smahi
+- Warda Meziane
+- Zeyneb Hadjidj
+- Zineb Mekkaoui
+- Sana Boualitabet Helal
+
+------------------------------------------------------
+
+## Objectifs
+
+Maîtriser les aspects bioinformatiques et expérimentaux de l'analyse  du transcriptome à grande échelle.
+
+- Stimulation d'une lignée lymphocytaire T par traitement PMA/Ionomycine. 
+- Analyse bioinformatique de données RNA-seq. 
+- Validation expérimentale par la technique de RT-PCR
+
+-------------------------------------------------------
 
 
-## Formateurs
+## Programme
 
-- Denis Puthier (DP), Eve-lyne mathieu, belhocine mohamed, kermezli yasmina, saadi wiam
+| Jour | Matin | Après-midi
+|-----|------|----|
+|Dimanche| Présentation du workshop et Introduction générale| Traitement des données RNA-Seq|
+|Lundi| Régulation épigénétique en conditions physiologiques et pathologiques| Identification de gènes différentiellement exprimés|
+|Mardi|Les LncRNAs: rôles régulateurs dans le système immunitaire| Etudes des voies de régulation affectées|
+|Mercredi|Préparation des cDNAs| Etude de l'expression des gènes par PCR|
+|Jeudi|Analyse de résultats PCR par électrophorèse sur gel.| Présentation des résultats. Conclusions.|
 
-* * *  * * * * * *
+
+-------------------------------------------------------
+
+## Cours théoriques
+
+Vous trouverez ci-dessous les présentations des différents intervenants.
+
+| Nom | Description  |
+|-----|--------------|
+| [Présentation de D. Puthier](slides/rna-seq_2015-polytech.pdf)| Applications. Traitement des données RNA-Seq. |
+| [Présentation de S. Spicuglia]() | Régulation épigénétique | 
+| [Analyse statistique du transcriptome]() | Premiers éléments d'analyse statistique du transcriptome: (1) rappels des notions d'échantillonnage; (2) tests de comparaison de moyenne; (3) clustering. Sur base de biopuces, mais les TP incluront également quelques touches d'analyse de RNA-seq. |
+
+-------------------------------------------------------
+
+## Phases pratiques
+
+Vous trouverez ci-dessous des liens vers du matériel pédagogique utilisé dans le cadre des phases pratiques.
+
+| Nom |  Concepts traités  | Outils |
+|-----|-------------------|--------|
+| [Tutoriel RNA-Seq](practical/rna_seq_galaxy/rnaseq_td_galaxy.html) | Traitement de données RNA-Seq | Galaxy server, TopHat, FastQC, cufflinks, cuffmerge, IGV, samtool flagstat, UCSC genome Browser, UCSC table Browser, UCSC FTP web site, Ensembl gene search, R...
+| [R quick tour](practical/R_first_steps/quick_tour.html) | Opérations de base avec R (réalisée sous forme de démo durant les TP) | R, RStudio |
+| [Transcriptome microarrays](practical/microarrays/denboer_data/) | Analyse des données de biopuces; détection de gènes exprimés de façon différentielles (DEG) entre sous-types de cancers.  | R, RStudio |
+
+-------------------------------------------------------
 
 ## Ressources
 
@@ -31,43 +101,8 @@ output:
 
 -------------------------------------------------------
 
-## Cours théoriques
-
-Vous trouverez ci-dessous des  informations portant sur les concepts nécessaires à la réalisation des travaux dirigés.
-
-
-| Nom | Description  |
-|-----|--------------|
-|[Les approches hauts-débit en génomique](slides/genomic-intro.pdf)  | Les outils haut-débit et les challenges dans le domaine de la génomique. |
-| [Une introduction au RNA-Seq](slides/rna-seq_2015-polytech.pdf)| Applications. Traitement des données RNA-Seq. |
-| [Annotation des génomes](slides/CM3_annotation_des_genomes_JvH.pdf) | Annotation : des génomes aux voies métaboliques, en passant parfois par les données transcriptomiques | 
-| [Analyse statistique du transcriptome](slides/CM4_statistical_analysis_of_transcriptome.pdf) | Premiers éléments d'analyse statistique du transcriptome: (1) rappels des notions d'échantillonnage; (2) tests de comparaison de moyenne; (3) clustering. Sur base de biopuces, mais les TP incluront également quelques touches d'analyse de RNA-seq. |
-
--------------------------------------------------------
-
-## Travaux dirigés
-
-Vous trouverez ci-dessous la liste des exercices réalisés.
-
-| Nom |  Concepts traités  | Outils |
-|-----|-------------------|--------|
-| [Tutoriel RNA-Seq](practical/rna_seq_galaxy/rnaseq_td_galaxy.html) | Traitement de données RNA-Seq | Galaxy server, TopHat, FastQC, cufflinks, cuffmerge, IGV, samtool flagstat, UCSC genome Browser, UCSC table Browser, UCSC FTP web site, Ensembl gene search, R...
-| [R quick tour](practical/R_first_steps/quick_tour.html) | Opérations de base avec R (réalisée sous forme de démo durant les TP) | R, RStudio |
-| [Transcriptome microarrays](practical/microarrays/denboer_data/) | Analyse des données de biopuces; détection de gènes exprimés de façon différentielles (DEG) entre sous-types de cancers.  | R, RStudio |
-
-* * *  * * * * * *
 
 ### Fichiers de données
 
-#### Den Boer 2009
-
-| Contenu | Fichier |
-|---------|---------|
-| Table d'expression | [denboer2009_GSE13425_Norm_Whole.tab.gz](practical/microarrays/denboer_data/denboer2009_GSE13425_Norm_Whole.tab.gz) |
-| Sous-types d'échantillons | [denboer2009_GSE13425_sample_subtype.tab](practical/microarrays/denboer_data/denboer2009_GSE13425_sample_subtype.tab) |
-| Description des échantillons | [GSE13425_phenoData.txt](practical/microarrays/denboer_data/GSE13425_phenoData.txt) |
-| | | 
-
-* * *  * * * * * *
 
 
