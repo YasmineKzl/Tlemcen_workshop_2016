@@ -1,8 +1,8 @@
 ---
 title: "Tlemcen Workshop."
-author: Yasmine Kermezli, Denis Puthier, Eve-lyne Mathieu, Mourad Aribi Salvatore
-  Spicuglia
-date: "2015-2016"
+author: Yasmine Kermezli, Denis Puthier, Eve-lyne Mathieu, Mourad Aribi, Salvatore
+  Spicuglia, mohamed belhocine, wiam saadi, lynda klouche, djamel smahi, warda meziane, zeyneb hadjidj, zineb mekkaoui, sana boualitabet helal 
+date: "29 Mai 2016 - 2 juin 2016"
 output:
   html_document:
     theme: cerulean
@@ -16,9 +16,9 @@ output:
 * * *  * * * * * *
 
 
-## Enseignants
+## Formateurs
 
-- Denis Puthier (DP)
+- Denis Puthier (DP), Eve-lyne mathieu, belhocine mohamed, kermezli yasmina, saadi wiam
 
 * * *  * * * * * *
 
