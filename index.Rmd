@@ -17,16 +17,17 @@ output:
 <br>
 <br>
 
-| | ||
-|-- | --|--|
-|<img src="img/banniere-labo.png" style="width:300px; vertical-align:middle">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<img src="img/tagc_logo.jpg" style="width:300px; vertical-align:top !important">|
+| || |
+|----------------- |--|--------------------|
+|<img src="img/banniere-labo.png" style="width:300px; vertical-align:middle">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<img src="img/tagc_logo.jpg" style="width:300px; vertical-align:top  !important" >|
+
 
 <br>
 <br>
 
 ## Comité d'organisation
 
-- S. Spicuglia & Mourad Aribi.
+- **S. Spicuglia & M. Aribi**.
 
 ## Equipe pédagogique
 
@@ -58,7 +59,7 @@ Maîtriser les aspects bioinformatiques et expérimentaux de l'analyse  du trans
 ## Programme
 
 | Jour | Matin | Après-midi
-|-----|------|----|
+|-------|-----------------------------|------------------------------------------------|
 |Dimanche| Présentation du workshop et Introduction générale| Traitement des données RNA-Seq|
 |Lundi| Régulation épigénétique en conditions physiologiques et pathologiques| Identification de gènes différentiellement exprimés|
 |Mardi|Les LncRNAs: rôles régulateurs dans le système immunitaire| Etudes des voies de régulation affectées|
@@ -66,45 +67,94 @@ Maîtriser les aspects bioinformatiques et expérimentaux de l'analyse  du trans
 |Jeudi|Analyse de résultats PCR par électrophorèse sur gel.| Présentation des résultats. Conclusions.|
 
 
--------------------------------------------------------
+------------------------------------------------
 
 ## Cours théoriques
 
 Vous trouverez ci-dessous les présentations des différents intervenants.
 
 | Nom | Description  |
-|-----|--------------|
+|-----|------------------------------------------------------|
 | [Présentation de D. Puthier](slides/rna-seq_2015-polytech.pdf)| Applications. Traitement des données RNA-Seq. |
 | [Présentation de S. Spicuglia]() | Régulation épigénétique | 
 | [Analyse statistique du transcriptome]() | Premiers éléments d'analyse statistique du transcriptome: (1) rappels des notions d'échantillonnage; (2) tests de comparaison de moyenne; (3) clustering. Sur base de biopuces, mais les TP incluront également quelques touches d'analyse de RNA-seq. |
 
--------------------------------------------------------
+---------------------------------------------
 
 ## Phases pratiques
 
 Vous trouverez ci-dessous des liens vers du matériel pédagogique utilisé dans le cadre des phases pratiques.
 
 | Nom |  Concepts traités  | Outils |
-|-----|-------------------|--------|
+|-----|-------------------|--------------------------------------|
 | [Tutoriel RNA-Seq](practical/rna_seq_galaxy/rnaseq_td_galaxy.html) | Traitement de données RNA-Seq | Galaxy server, TopHat, FastQC, cufflinks, cuffmerge, IGV, samtool flagstat, UCSC genome Browser, UCSC table Browser, UCSC FTP web site, Ensembl gene search, R...
 | [R quick tour](practical/R_first_steps/quick_tour.html) | Opérations de base avec R (réalisée sous forme de démo durant les TP) | R, RStudio |
 | [Transcriptome microarrays](practical/microarrays/denboer_data/) | Analyse des données de biopuces; détection de gènes exprimés de façon différentielles (DEG) entre sous-types de cancers.  | R, RStudio |
 
--------------------------------------------------------
+-----------------------------------------------
 
 ## Ressources
 
 | Nom | Lien | Description
------|------|--------------
-|site web d'Illumina | https://www.illumina.com/| De nombreuses vidéo de présentation des technologies.|
-|site web d'Oxford Nanopore|https://www.nanoporetech.com/| Présentation du MiION et des ses applications.|
-|site web de package Deseq2| https://bioconductor.org/packages/release/bioc/html/DESeq2.html| Analyse de l'expression différentielle via la distribution binomiale négative.
-|site web de l'UCSC genome browser | https://genome.ucsc.edu/| Extraction des séquences de référence à partir d'une large collection de génome.
+------------------|------|---------------------------------------------------------------------------
+|site web d'Illumina | [Illumina](https://www.illumina.com/)| De nombreuses vidéo de présentation des technologies.|
+|site web d'Oxford Nanopore|[Oxford](https://www.nanoporetech.com/)| Présentation du MiION et des ses applications.|
+|site web de package Deseq2| [Deseq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)| Analyse de l'expression différentielle via la distribution binomiale négative.
+|site web de l'UCSC genome browser |[UCSC](https://genome.ucsc.edu/)| Extraction des séquences de référence à partir d'une large collection de génome.
 
--------------------------------------------------------
-
-
-### Fichiers de données
+-----------------------------------------------
 
 
+### Fichiers de données & description 
+<br>
 
+1.Récupération des données brutes de séquençage (RNA-Seq) sous forme de fichier *[FASTQ]()*: Le format FASTQ est un format de fichier texte permettant de stocker à la fois des séquences biologiques (uniquement des séquences nucléiques) et les scores de qualité associés.
+
+<br> 
+
+<img src="img/fastq_fig.jpg" style="width:250px; vertical-align:middle">
+
+<br>
+
+2.Controle de qualité des *reads* par l'outils [Fastqc](https://usegalaxy.org/root?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.64) de l'UCSC.
+
+<br>
+
+<img src="img/fqc.jpg" alt="résultat de fasqc" style="width:250px; vertical-align:middle">
+
+<br>
+
+3.Alignement des *reads* contre le génome de référence avec l'outils ultrarapide  [Bowtie](http://bowtie-bio.sourceforge.net/index.shtml) de [Tophat](https://ccb.jhu.edu/software/tophat/index.shtml)
+
+<br>
+
+<img src="img/tophat.jpg" alt="résultat de fasqc" style="width:250px; vertical-align:middle">
+
+<br>
+
+4.Visualisation de résultats (sous format *[.bam](http://samtools.github.io/hts-specs/SAMv1.pdf)*) (Binary Alignment/Map) avec [IGV](https://www.broadinstitute.org/software/igv/log-in) (Integrated Genome Viewer)
+
+<br>
+<img src="img/igv.png" alt="résultat de fasqc" style="width:250px; vertical-align:middle">
+
+<br>
+
+5.Comptage des *FPKMs* (fragments per kilobase of exon per million fragments mapped) avec [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/cuffdiff/) en utilisant le genome de référence sous forme d'un fichier [*GTF*](http://www.ensembl.org/info/website/upload/gff.html) (Gene transfer format) 
+
+<br>
+
+6.Etablir une liste de gènes différentiellement exprimés avec le package DESeq2 sur logiciel R.
+
+<br>
+
+
+7.Validation par PCR des Candidats trouvés.
+
+
+
+
+
+---------------------------------------
+-----------------------------------------------
+
+©2016-2017
