@@ -212,9 +212,7 @@ Le matériel pédagogique pour les phases pratiques est disponible sur le site w
 
 <br>
 
-<br>
 
-7.Analyse d'enrichissement fonctionnel avec [DAVID](https://david.ncifcrf.gov/).
 
 <br>
 
@@ -224,9 +222,8 @@ Le matériel pédagogique pour les phases pratiques est disponible sur le site w
 
 <br>
 
-<hr />
 <br>
-©2016-2017
+
 
 -----------------------------------------------
 
