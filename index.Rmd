@@ -5,13 +5,13 @@ title: IIIème workshop du laboratoire BIOMOLIM - Immunoinformatique - Analyse d
 author: 'null'
 date: "29 mai au 2 juin - Auditorium de la faculté SNV-TU - Algérie."
 output:
-  word_document:
-    toc: yes
-    toc_depth: '4'
   html_document:
     theme: cerulean
     toc: no
     toc_depth: 4
+  word_document:
+    toc: yes
+    toc_depth: '4'
 ---
 
 <br>
@@ -72,7 +72,7 @@ Vous trouverez ci-dessous le programme des enseignements. Ils auront lieu chaque
 **Dimanche 29 Mai**
 
 |Horaire|Contenu
-|----|----
+|----|---------------------------------------------------
 |9h00| Mots d'ouverture (Pr. Mourad)
 |9h20| Présentation du workshop et introduction générale (Spicuglia/Mathieu/Puthier)
 |10h30| Pause café
@@ -86,7 +86,7 @@ Vous trouverez ci-dessous le programme des enseignements. Ils auront lieu chaque
 
 
 |Horaire|Contenu
-|----|----
+|----|----------------------------------------------------
 |9h00| Cours théorique sur la régulation épigénétique au cours du développement et des maladies (Spicuglia)
 |10h30| Pause café
 |10h45| Quantification de l'expression de gènes (Puthier/Belhocine/Kermezli)
@@ -99,7 +99,7 @@ Vous trouverez ci-dessous le programme des enseignements. Ils auront lieu chaque
 **Mardi 31 Mai**
 
 |Horaire|Contenu
-|----|----
+|----|----------------------------------------
 |9h00| Cours théorique. LncRNAs| Rôles régulateurs dans le système immunitaire (Mathieu)
 |10h30| Pause café
 |10h45| Préparation du cDNA (Mathieu/Saadi)
@@ -112,7 +112,7 @@ Vous trouverez ci-dessous le programme des enseignements. Ils auront lieu chaque
 **Mercredi 01 juin**
 
 |Horaire|Contenu
-|----|----
+|----|-------------------------------------------
 |9h00| Analyse de résultats de PCR par électrophorèse sur gel d'agarose (Mathieu/Saadi)
 |10h30| Pause café
 |10h45| Révélation de résultats (Mathieu/Saadi)
@@ -124,7 +124,7 @@ Vous trouverez ci-dessous le programme des enseignements. Ils auront lieu chaque
 **Jeudi 02 Juin**
 
 |Horaire|Contenu
-|----|----
+|----|-----------------------------------------------------
 |9h00| Etude des Voies de régulation affectées (Puthier/Belhocine/Kermezli)
 |10h30| Pause café
 |10h45| Rédaction d&#39;un rapport synthétique
@@ -141,12 +141,13 @@ Vous trouverez ci-dessous le programme des enseignements. Ils auront lieu chaque
 
 Les présentations des intervenants sont disponibles sur le site web du worshop.
 
-| Nom | Description  
-|-----|------------------------------------------------------
+| Nom | Description 
+|-----|-----------------------------
 | [Présentation de D. Puthier](slides/rna-seq_2015-polytech.pdf)| Le monde des ARNS. Traitement des données RNA-Seq. 
 | [Présentation de S. Spicuglia]() | Régulation épigénétique 
 | [Eléments de classification]() | Introduction au clustering.
 |[Présentation de Eve-Lyne Mathieu]() | LncRNAs: Rôles régulateurs dans le système immunitaire.
+
 ---------------------------------------------
 
 ## Phases pratiques
@@ -154,9 +155,9 @@ Les présentations des intervenants sont disponibles sur le site web du worshop.
 Le matériel pédagogique pour les phases pratiques est disponible sur le site web du worshop.
 
 | Nom |  Concepts traités  | Outils |
-|-----|-------------------|--------------------------------------|
-| [Tutoriel RNA-Seq](practical/rna_seq_galaxy/rnaseq_td_galaxy.html) | Traitement de données RNA-Seq | Galaxy server, TopHat, FastQC, cufflinks, cuffmerge, IGV, samtool flagstat, UCSC genome Browser, UCSC FTP web site, Ensembl gene search, R...
-| [R quick tour](practical/R_first_steps/quick_tour.html) | Opérations de base avec R (réalisée sous forme de démo durant les TP) | R, RStudio |
+|-----|-------------------|----------------------------------------------|
+|[Tutoriel RNA-Seq](practical/rna_seq_galaxy/rnaseq_td_galaxy.html) | Traitement de données RNA-Seq | Galaxy server, TopHat, FastQC, cufflinks, cuffmerge, IGV, samtool flagstat, UCSC genome Browser, UCSC FTP web site, Ensembl gene search, R...
+|[R quick tour](practical/R_first_steps/quick_tour.html) | Opérations de base avec R (réalisée sous forme de démo durant les TP) | R, RStudio |
 | [PCR]) | Protocole pour la réalisation d'un RTPCR | PCR, RT-PCR, Electrophorèse...  |
 
 
@@ -229,10 +230,10 @@ Le matériel pédagogique pour les phases pratiques est disponible sur le site w
 
 ## Ressources web
 
-| Nom | Lien | Description
-------------------|------|---------------------------------------------------------------------------
-|site web d'Illumina | [https://www.illumina.com/](https://www.illumina.com/)| De nombreuses vidéo de présentation des technologies.|
-|site web d'Oxford Nanopore|[https://www.nanoporetech.com/](https://www.nanoporetech.com/)| Présentation du MiION et des ses applications.|
-|site web de package Deseq2| [https://bioconductor.org/packages/release/bioc/html/DESeq2.html](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)| Analyse de l'expression différentielle via la distribution binomiale négative.
-|Navigateur de génome de l'UCSC |[://genome.ucsc.edu/](https://genome.ucsc.edu/)| Base de données d'information sur les génomes.
-|Navigateur de génome Ensembl|[http://www.ensembl.org/](http://www.ensembl.org/)| Base de données d'information sur les génomes.
+|Lien | Description
+------------------|---------------------------------------------------------------------------
+|[site web d'Illumina](https://www.illumina.com/)| De nombreuses vidéo de présentation des technologies.|
+|[site web d'Oxford Nanopore](https://www.nanoporetech.com/)| Présentation du MiION et des ses applications.|
+|[site web de package Deseq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html)| Analyse de l'expression différentielle via la distribution binomiale négative.
+|[Navigateur de génome de l'UCSC](https://genome.ucsc.edu/)| Base de données d'information sur les génomes.
+|[Navigateur de génome Ensembl](http://www.ensembl.org/)| Base de données d'information sur les génomes.
