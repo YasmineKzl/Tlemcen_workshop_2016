@@ -1,5 +1,5 @@
 ---
-title: 'Analyse de données RNA-Seq: alignement et quantification avec la suite Tuxedo'
+title: 'RNA-Seq data analysis'
 author: "Denis Puthier"
 date: "11 janvier 2016"
 output:
@@ -323,7 +323,9 @@ The Integrative Genomics Viewer (IGV) is a high-performance visualization tool f
 
 <div class="exo">
 - What is the strand of gene 'Egr1' ?
-- What does the blue and pink color indicate ?
+- In the Egr1 gene some exonic region are larger than others ? What are they ? 
+- Where are the 3' and 5' UTR regions ? 
+- Regrading reads, what does the blue and pink color indicate ?
 - Mouse over a paired read. What are the meanings of the following tags/keys:
     - CIGAR ?
     - Mapped ?
@@ -476,7 +478,6 @@ Create a new history entitled **DM versus PI**. Copy the datasets below in this 
 
 ------------------------------------------------------------------------
 
-
 ## Merging the reference and infered genomic annotations
 
 We now have at least three different GTF files (depending on whether you have processed DM2,DM3,PI2,PI3):
@@ -534,10 +535,6 @@ The objective of quantification is to estimate the expression level of each gene
 - Check the **Summary file**. What are **Unassigned_MultiMapping**, **Unassigned_NoFeatures**, **Unassigned_MappingQuality**, **Unassigned_Chimera** ?
 </div>
 
-----------------------------------------------------
-
-## Differential expression analysis with DESeq2
-
 
 ----------------------------------------------------
 
@@ -557,7 +554,7 @@ count <- read.table("raw_counts.txt" ,sep="\t", head=T,row=1)
 #colnames(count)
 
 # Change column names
-colnames(count) <- c("Activated", "Resting")
+colnames(count) <- c("control", "Treated")
 ## Values are log2 transformed 
 ## (a pseudo-count is added in case one of the sample is equal or close to zero)
 count <- log2(count +1)
@@ -576,13 +573,127 @@ identify(count[,1], count[,2],lab=rownames(count))
 </div>
 
 
-## What's about ENSG00000134460 ?
+## What's about ENSMUSG00000038418 ?
 
-The gene ENSG00000134460 seems to be strongly induced during T-cell activation. Go to Ensembl genome Browser and use the search area to get some information about it. Is this positive regulation expected ?
+The gene ENSMUSG00000038418 seems to be strongly induced during T-cell activation. Go to Ensembl genome Browser and use the search area to get some information about it.
+
+<div class="exo">
+- Go to the ensembl [genome browser](http://www.ensembl.org/).
+- In the **search panel** select **Human**. In the text area of the search panel type **ENSMUSG00000038418**.
+- Click on entry **ENSMUSG00000038418**. What is the meaning of the **ENSG** prefix ?
+- What is the **description** associated to EGR1 ? What does it mean ?
+- Ask for **Show transcript table**. How many transcript are associated with EGR1 ?
+- What about the **ENST** prefix ?
+- What is the **biotype of this transcript** ?
+- Some links are provided toward **RefSeq** and **UniprotDB**. What kind of information do they store ?
+</div>
 
 
+----------------------------------------------------
+
+## Differential expression analysis with DESeq2
+
+We have seen that gene TODO is strongly induced upon PMA/Ionomycin treatment. Our purpose is now to define a list of differentially expressed genes. To this aim we will use DESeq2 R library (interfaced in Galaxy server). DESeq2 will perform a statistical test that will point out some genes whose expression differs between both conditions.
+At these step we will work with the full dataset that can be obtained through **Shared Data > Data Libraries > TlemCen 2016 > COUNTS > DM_vs_PI_gene_counts.txt > Import this dataset into selected history**. In the new window select **DM versus PI** as **Destination history**. Click on **Import library dataset**.
+
+<div class="protocol">
+- From the left menu, select **NGS: RNA Analysis > Differential_Count**
+- Set **DMSO** as the first treatment name (and select columns **DM1, DM2, DM3**).
+- Set **PMA/Inomycin** as the second treatment name (and select columns **PI1, PI2, PI3**).
+- Set **Run this model using edgeR** to **Do not run edgeR**.
+- Set **Run Voom** to **Do not run Voom**.
+- Set **Do not run DESeq2** to **Run DESeq2**.
+- Set **fdr** as **FDR (Type II error) control method**.
+- Click **Execute**.
+</div>  
+
+<div class="exo">
+- What is the first plot ?
+- What can you say from the second plot ?
+- Look at the produced **html file**. What can you guess from the heatmap ?
+</div>
+
+----------------------------------------------------
+
+## Selecting differentially expressed genes
+
+We will now select differentially expressed genes by applying a threshold on the **adjusted p-value (padj).
+
+<div class="protocol">
+- Select **Filter and Sort > Filter data on any column using simple expressions**.
+- Set **Number of header lines to skip** to 1.
+- Apply the following filter **c7 < 0.01** (i.e adjusted p-value < 0.01).
+- How many lines (genes) do you obtain as output ?
+- Cut the column 1 (gene name) using **Text Manipulation > cut** and save it in a dataset called **differentially_expressed_genes**.
+</div>
+
+Now we will join this list with the matrix (**differentially_expressed_genes**) with the count matrix (DM_vs_PI_gene_counts.txt).
+
+<div class="protocol">
+- Use **Join, Subtract and Group > Join two Datasets.** 
+- Set **Join** to **differentially_expressed_genes**.
+- Set **using column** to **c1**.
+- Set **with** to **DM_vs_PI_gene_counts.txt**.
+- Set **and column** to **c1**.
+- Click **Execute**.
+- Select **Text Manipulation > Cut**.
+- Set **Cut columns** to **c2,c3,c4,c5,c6,c7,c8**.
+- Set **From** to the joined dataset.
+- How many lines (genes) do you obtain as output ?
+- To retrieve the original header use **Text Manipulation > Select first lines from a dataset** set **Select first** to 1 and press execute.
+- Use **Text Manipulation > Concatenate datasets tail-to-head** to concatenate the header and the previous dataset (output of cut).
+- Save this dataset as **differentially_expressed_genes_matrix**
+</div>
+
+
+## Hierarchical clustering with cluster.
+
+We will now apply a hierarchical clustering (class discovery) to check wether our selected genes are able to distinguish between PI and DM samples. First we will need to transform data into log2 scale.
+
+<div class="protocol">
+- Select **Convert Formats > Add a pseudocount and perform log2 transformation**.
+- Choose **differentially_expressed_genes_matrix** as input.
+- Save the matrix onto disk.
+</div>
+
+<div class="exo">
+- What is the objective of logarithmic transformation ?
+- Why base 2 ?
+<div>
+
+
+<div class="protocol">
+- The **cluster 3.0** program should be already installed on your computer.
+- Launch **cluster 3.0** and select.
+  - Center each row (median).
+  - Distance measure for genes/rows clustering : **Pearson**.
+  - Distance measure for samples/columns clustering : **Pearson**.
+  - Hierarchical clustering method: **average**.
+  - Press **run**.
+</div>
+
+Now we can load the result un **Java Treeview**.
+
+<div class="protocol">
+- launch **Java Treeview**.
+- Use **File > Open** and browse to the .cdt file.
+- Go to **Settings > Pixel settings** and set **Global > Y > Fill** and **contrast** to 2.
+</div>
+
+
+
+<div class="exo">
+- What do you think about sample clustering ?
+- What do you think about gene clustering ?
+- What would you propose ?
+</div>
 
 -------------------------------------------------------------------
+
+### Test alternative methods for differential analysis
+
+
+
 
 ### The SRP000698 dataset
 
@@ -659,12 +770,4 @@ Get some information about : ENST00000454541
 </div>
 
 ------------------------------------------------------------------------
-
-- GO to gene 'TODO'.
-- In the TODO gene some exonic region are larger than others ? What are they ? Where are the 3' and 5' UTR regions ? <--- TODO
-- In the left panel, right click on the GTF file name and click on **expand** to visualize all known isoforms of TODO <--- TODO
-- What about the gene that is 6kb upstream (5' orientation) of BAG3. Does it appear in the IGV RefSeq track. What could it be ?
-- To check if this transcript is included in ensembl annotation, retrieve the GTF file from Galaxy. Check if the file extension is correct (.gtf). Load it into Galaxy. 
-- Is the transcript downstream to BAG3 part of ensembl annotation ?
-- What about this trancript model ? Does it seem to multiexonic ? What would be roughly the cDNA length ? What kind of RNA could it be ?
 
