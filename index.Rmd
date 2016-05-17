@@ -2,16 +2,16 @@
 ---
 title: IIIème workshop du laboratoire BIOMOLIM - Immunoinformatique - Analyse du transcriptome
   par approches haut-débit.
-author: "null"
+author: 'null'
 date: "29 mai au 2 juin - Auditorium de la faculté SNV-TU - Algérie."
 output:
-  word_document:
-    toc: yes
-    toc_depth: '4'
   html_document:
     theme: cerulean
     toc: no
     toc_depth: 4
+  word_document:
+    toc: yes
+    toc_depth: '4'
 bibliography: bibliography.bib
 ---
 
