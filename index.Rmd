@@ -2,16 +2,17 @@
 ---
 title: IIIème workshop du laboratoire BIOMOLIM - Immunoinformatique - Analyse du transcriptome
   par approches haut-débit.
-author: 'null'
+author: "null"
 date: "29 mai au 2 juin - Auditorium de la faculté SNV-TU - Algérie."
 output:
+  word_document:
+    toc: yes
+    toc_depth: '4'
   html_document:
     theme: cerulean
     toc: no
     toc_depth: 4
-  word_document:
-    toc: yes
-    toc_depth: '4'
+bibliography: bibliography.bib
 ---
 
 <br>
@@ -47,23 +48,6 @@ output:
 - Sana Boualitabet Helal
 
 ------------------------------------------------------
-
-## Objectifs
-
-Maîtriser les aspects bioinformatiques et expérimentaux de l'analyse  du transcriptome à grande échelle.
-
-- Stimulation d'une lignée lymphocytaire T par traitement PMA/Ionomycine. 
-- Analyse bioinformatique des données RNA-seq produites. 
-- Validation expérimentale par RT-PCR.
-
-
--------------------------------------------------------
-
-## Site Web
-Le site web du workshop est disponible sur github à l'adresse suivante:
-
-- http://yasminekzl.github.io/Tlemcen_workshop_2016/index.html
-
 
 ## Programme
 
@@ -136,6 +120,64 @@ Vous trouverez ci-dessous le programme des enseignements. Ils auront lieu chaque
 
 ------------------------------------------------
 
+## Introduction
+### Les nouvelles méthodes de séquençage
+
+Aujourd'hui, l'avènement des méthodes de séquençage haut débit ("high throughput sequencing"", HTS) permet d'analyser systématiquement les différentes espèces d'acides nucléiques (ADN et ARN) présentes  dans une population cellulaire et d'analyser les interactions que celles-ci entretiennent avec les protéines régulatrices. Parmi les méthodes développées, le RNA-Seq permet une analyse systématique des transcrits présents dans un échantillon biologique donné. Les applications de cette téchnologie sont nombreuses notamment dans le domaine de la santé et de la recherche fondamentale. Ainsi, des travaux récents menés dans le cadre du projet ENCODE (ENCyclopedia Of  DNA Elements) montrent qu'une large fraction du génome humain (au moins 74%) a la propriété de pouvoir être transcrite. L'analyse des transcrits découverts par RNA-Seq montre qu'une large partie des transcrits sont relativement long et sans doute non-codant. On les a par conséquent classé dans la catégorie des 'Long non-coding RNAs' (lncRNAs). Ces lncRNAs sont faiblement abondants, très tissus-spécifiques et la détermination de leur fonction reste un défit majeur pour les années à venir. 
+
+### Objectif 
+
+Dans le cadre de cette formation nous vous proposons de partir sur les traces de ces nouveaux ARNs en réalisant les étapes d'analyses bioinformatiques d'échantillons RNA-Seq.  Cette analyse sera suivie d'une validation des découvertes effectuées en utilisant la méthode de RT-PCR.
+
+### Le modèle biologique
+#### Le thymus
+
+Le thymus est un organe lymphoïde primaire où se déroule la maturation lymphocytaire T. Il coordonne les événements qui conduisent à la formation d’un répertoire de lymphocytes T fonctionnels à partir de cellules souches hématopoïétiques.  La maturation lymphocytaire T est sous l’étroit contrôle du microenvironnement thymique constitué de cellules stromales appelées aussi cellules « résidentes » (Anderson, 2000). Au cours de leur migration dans le thymus, les thymocytes subissent de nombreuses étapes de différenciation caractérisées par des changements phénotypiques successifs. Ainsi, la différenciation des thymocytes est définie principalement par l’expression des marqueurs CD4 et CD8 et le degré de réarrangement des différents gènes codant pour le TCR (T cell receptor). Dans le thymus adulte, on peut définir trois grandes populations cellulaires: CD4-CD8- (double négatif DN, 5% du pool total des thymocytes), CD4+CD8+ (double positif DP, 80%) et CD4+ ou CD8+ (simple positif SP, 15%) (Fig 1). 
+
+#### la lignée P5424
+
+L’analyse des premières étapes de la différenciation T est rendue difficile par la faible représentation des précurseurs thymiques dans le thymus de la souris adulte. Afin de pouvoir analyser les processus de différenciation thymocytaire il est intéressant de pouvoir disposer de cellules immortalisées (lignées)  pouvant être manipulées in-vitro. Dans un article de 1995, Monbaertz a décrit l’obtention de lignées cellulaires après croisements entre souris Knock-Out (KO)  pour les gènes P53 et pour le gène RAG1 (Mombaerts et al, 1995). Dans ces souris P53°/RAG°, la différenciation thymocytaire est bloquée au stade DN3 (effet de l’invalidation du gène RAG) et la délétion de P53 s’accompagne de nombreuses tumeurs. Il est donc très probable d’obtenir sur ce fond génétique des lignées cellulaires correspondant à des précurseurs T DN (qui sont très nombreux dans le thymus de souris RAG1°). Les auteurs ont obtenu par cette approche une lignée cellulaire nommées P5424. L’analyse des marqueurs de surface et du transcriptome montre que cette lignée à un phénotype correspondant plutôt à un Lymphocyte T DP.  
+Le traitement de cette lignée  par de l’ionomycine (un ionophore permettant l’entrée de calcium dans la cellule) et du Phorbol 12-Myristate 13-Acétate (PMA), un activateur des protéine-kinase C (PKC) induit une activation forte de ces cellules qui s’accompagne, de manière remarquable, de la régulation positive de nombreux marqueurs de maturation (*e.g.* Cd5, Cd69) et la perte de marqueurs spécifiques des précurseurs (*e.g.* RAG1, Ptcra). Ce modèle de stimulation cellulaire constitue donc un bon système pour analyser in-vitro les mécanismes conduisant à l’acquisition de lymphocytes T matures. 
+
+
+### Présentation succincte des étapes bioinformatiques
+
+Vous découvrirez notamment,  dans le cadre de cette formation, les différentes étapes permettant d'obtenir une liste de gènes différentiellement exprimés à partir de données brutes de RNA-Seq. Nous verrons ensemble les étapes suivantes:
+
+- Le format FASTQ est un format texte permettant de stocker à la fois des séquences d'ADN et les scores de qualité associés.
+- Le contrôle qualité des *reads*.
+- Alignement des *reads*.
+- Visualisation de résultats dans un navigateur de génomes.
+- La quantification du signal.
+- L'analyse différentielle proprement dite.
+- Le regroupement hiérarchique.
+- Analyse d'enrichissement fonctionnel.
+- L'analyse des relations entre marques épigénétiques (e.g H3K4me3 et H3K27ac) et transcription.
+
+## Phase pratique en laboratoire
+
+Un document détaillé vous sera fourni décrivant les étapes pour la réalisation de la RT-PCR.
+
+-------------------------------------------------------
+
+## Site Web
+Le site web du workshop est disponible sur github à l'adresse suivante:
+
+- http://yasminekzl.github.io/Tlemcen_workshop_2016/index.html
+
+
+
+
+## Références
+
+Anderson G, Harman BC, Hare KJ, Jenkinson EJ. Microenvironmental regulation of T cell development in the thymus. Semin Immunol. 2000 Oct;12(5):457-64. Review. PubMed PMID: 11085178.
+
+Djebali S1, Davis CA, Merkel A, Dobin A, Lassmann T, Mortazavi A, Tanzer A, Lagarde J, Lin W, Schlesinger F, Xue C, Marinov GK, Khatun J, Williams BA, Zaleski C, Rozowsky J, Röder M, Kokocinski F, Abdelhamid RF, Alioto T, Antoshechkin I, Baer MT, Bar NS, Batut P, Bell K, Bell I, Chakrabortty S, Chen X, Chrast J, Curado J, Derrien T, Drenkow J, Dumais E, Dumais J, Duttagupta R, Falconnet E, Fastuca M, Fejes-Toth K, Ferreira P, Foissac S, Fullwood MJ, Gao H, Gonzalez D, Gordon A, Gunawardena H, Howald C, Jha S, Johnson R, Kapranov P, King B, Kingswood C, Luo OJ, Park E, Persaud K, Preall JB, Ribeca P, Risk B, Robyr D, Sammeth M, Schaffer L, See LH, Shahab A, Skancke J, Suzuki AM, Takahashi H, Tilgner H, Trout D, Walters N, Wang H, Wrobel J, Yu Y, Ruan X, Hayashizaki Y, Harrow J, Gerstein M, Hubbard T, Reymond A, Antonarakis SE, Hannon G, Giddings MC, Ruan Y, Wold B, Carninci P, Guigó R, Gingeras TR. Landscape of transcription in human cells. Nature. 2012 Sep 6;489(7414):101-8.PubMed PMID: 22955620. 
+
+Mombaerts P, Terhorst C, Jacks T, Tonegawa S, Sancho J. Characterization of immature thymocyte lines derived from T-cell receptor or recombination activating gene 1 and p53 double mutant mice. Proc Natl Acad Sci U S A. 1995 Aug 1;92(16):7420-4. PubMed PMID: 7638208.
+
+
+
 
 ## Cours théoriques
 
@@ -160,70 +202,6 @@ Le matériel pédagogique pour les phases pratiques est disponible sur le site w
 |[R quick tour](practical/R_first_steps/quick_tour.html) | Opérations de base avec R (réalisée sous forme de démo durant les TP) | R, RStudio |
 | [PCR]) | Protocole pour la réalisation d'un RTPCR | PCR, RT-PCR, Electrophorèse...  |
 
-
------------------------------------------------
-
-### Présentation succincte des étapes bioinformatiques
-
-<br>
-
-1.Récupération des données brutes de séquençage (RNA-Seq) sous forme de fichier *[FASTQ]()*: Le format FASTQ est un format de fichier texte permettant de stocker à la fois des séquences biologiques (uniquement des séquences nucléiques) et les scores de qualité associés.
-
-<br> 
-
-<img src="img/fastq_fig.jpg" style="width:250px; vertical-align:middle">
-
-<br>
-
-2.Controle qualité des *reads* par l'outils [Fastqc](https://usegalaxy.org/root?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.64) de l'UCSC.
-
-<br>
-
-<img src="img/fqc.jpg" alt="résultat de fasqc" style="width:250px; vertical-align:middle">
-
-<br>
-
-3.Alignement des *reads* contre le génome de référence avec l'outils [Tophat](https://ccb.jhu.edu/software/tophat/index.shtml)
-
-<br>
-
-<img src="img/tophat.jpg" alt="résultat de fasqc" style="width:250px; vertical-align:middle">
-
-<br>
-
-4.Visualisation de résultats (sous format *[.bam](http://samtools.github.io/hts-specs/SAMv1.pdf)*) (Binary Alignment/Map) avec [IGV](https://www.broadinstitute.org/software/igv/log-in) (Integrated Genome Viewer)
-
-<br>
-<img src="img/igv.png" alt="résultat de fasqc" style="width:250px; vertical-align:middle">
-
-<br>
-
-5.Comptage des *FPKMs* (fragments per kilobase of exon per million fragments mapped) avec [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/cuffdiff/) en utilisant le genome de référence sous forme d'un fichier [*GTF*](http://www.ensembl.org/info/website/upload/gff.html) (Gene transfer format) 
-
-<br>
-
-6.Etablir une liste de gènes différentiellement exprimés avec le package DESeq2 sur logiciel R.
-
-<br>
-
-
-<br>
-
-7.Analyse d'enrichissement fonctionnel avec [DAVID](https://david.ncifcrf.gov/).
-
-<br>
-
-
-
-<br>
-
-8.Validation par PCR des Candidats trouvés.
-
-
-
-<br>
-
-<br>
 
 
 -----------------------------------------------
