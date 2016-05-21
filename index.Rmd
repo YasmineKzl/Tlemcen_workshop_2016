@@ -2,13 +2,16 @@
 ---
 title: IIIème workshop du laboratoire BIOMOLIM - Immunoinformatique - Analyse du transcriptome
   par approches haut-débit.
-author: 'null'
+author: ''
 date: "29 mai au 2 juin - Auditorium de la faculté SNV-TU - Algérie."
 output:
   html_document:
     theme: cerulean
     toc: no
     toc_depth: 4
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
   word_document:
     toc: yes
     toc_depth: '4'
@@ -40,12 +43,12 @@ bibliography: bibliography.bib
 - Mohamed Belhocine (doctorant, Aix-Marseille Université, TAGC, Marseille)
 - Yasmina Kermezli (doctorante, Université de Tlemcen)
 - Wiam Saadi (doctorante, Université de Tlemcen)
-- Lynda Klouche
-- Djamel Smahi
-- Warda Meziane
-- Zeyneb Hadjidj
-- Zineb Mekkaoui
-- Sana Boualitabet Helal
+- Lynda Klouche (BIOMOLIM, Université de Tlemcen)
+- Djamel Smahi (BIOMOLIM, Université de Tlemcen)
+- Warda Meziane (BIOMOLIM, Université de Tlemcen)
+- Zeyneb Hadjidj (BIOMOLIM, Université de Tlemcen)
+- Zineb Mekkaoui (BIOMOLIM, Université de Tlemcen)
+- Sana Boualitabet Helal (BIOMOLIM, Université de Tlemcen)
 
 ------------------------------------------------------
 
@@ -161,9 +164,8 @@ Un document détaillé vous sera fourni décrivant les étapes pour la réalisat
 -------------------------------------------------------
 
 ## Site Web
-Le site web du workshop est disponible sur github à l'adresse suivante:
-
-- http://yasminekzl.github.io/Tlemcen_workshop_2016/index.html
+https://www.univ-tlemcen.dz/actualites/246/iii-me-workshop-d-immunoinformatique-du-laboratoire-biomolim
+http://yasminekzl.github.io/Tlemcen_workshop_2016/index.html
 
 
 
