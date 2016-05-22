@@ -29,6 +29,13 @@ bibliography: bibliography.bib
 <br>
 <br>
 
+## Présidents d’honneur
+
+- Monsieur le Recteur de l’Université de Tlemcen, Pr. Mustapha DJAFOUR
+
+- Monsieur le Doyen de la Faculté SNV-STU, Pr. Farid LAHFA
+
+
 ## Organisateurs
 
 - Dr. Salvatore SPICUGLIA
