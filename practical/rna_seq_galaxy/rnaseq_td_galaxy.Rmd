@@ -3,16 +3,16 @@ title: "RNA-Seq data analysis"
 author: "Denis Puthier"
 date: "11 janvier 2016"
 output:
-  pdf_document:
-    fig_caption: yes
-    toc: no
-    toc_depth: 3
   html_document:
     css: ../../stylesheets/course.css
     fig_caption: yes
     highlight: zenburn
     theme: cerulean
     toc: yes
+    toc_depth: 3
+  pdf_document:
+    fig_caption: yes
+    toc: no
     toc_depth: 3
   word_document: default
 ---
@@ -156,6 +156,7 @@ Here we will use sickle.
 - Search for the sickle tool using the galaxy search engine (upper left corner). 
 - Select sickle tool.
 - Set **Single-End or Paired-End reads** to **Paired-end**.
+- Set **TQuality type** an to **Sanger**d press execute.
 - From **Paired-End Forward Strand FastQ Reads** dropdown list select 'DM1_R1'.
 - From **Paired-End reverse Strand FastQ Reads** dropdown list select 'DM1_R2'.
 - Set **Quality Threshold to 20, Length Threshold to 25** and press execute.
@@ -213,7 +214,7 @@ Several programs need to know about chromosome length to perform dedicated task.
 
 <div class="exo">
 - What does this file content?
-- Use **Text Manipulation > Cut** and **Statistics > Summary Statistics** to compute the median size of a mouse chromosome.
+- Use **Text Manipulation > Cut** and **Statistics > Summary Statistics >** **Column or expression > ** **select C2** to compute the median size of a mouse chromosome.
 </div>
 
 
