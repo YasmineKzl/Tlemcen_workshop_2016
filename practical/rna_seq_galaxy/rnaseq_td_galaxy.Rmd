@@ -156,7 +156,7 @@ Here we will use sickle.
 - Search for the sickle tool using the galaxy search engine (upper left corner). 
 - Select sickle tool.
 - Set **Single-End or Paired-End reads** to **Paired-end**.
-- Set **TQuality type** an to **Sanger**d press execute.
+- Set **TQuality type**  to **Sanger** and press execute.
 - From **Paired-End Forward Strand FastQ Reads** dropdown list select 'DM1_R1'.
 - From **Paired-End reverse Strand FastQ Reads** dropdown list select 'DM1_R2'.
 - Set **Quality Threshold to 20, Length Threshold to 25** and press execute.
